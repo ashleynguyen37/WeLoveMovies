@@ -1,6 +1,7 @@
 const service = require("./theaters.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
+//GET /theaters
 async function list(req, res) {
     let theaters;
     if(res.locals.movie) {

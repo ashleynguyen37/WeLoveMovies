@@ -1,12 +1,14 @@
 const service = require("./reviews.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
+//DELETE /reviews/:reviewId
 function destroy(req, res, next) {
     service.delete(res.locals.review.review_id)
         .then(() => res.sendStatus(204))
         .catch(next); 
 }
 
+//GET /reviews
 async function list(req, res) {
     const { movieId } = req.params;
     const reviews = await service.listByMovieId(movieId);
@@ -42,7 +44,7 @@ function hasRequiredProperties(req, res, next) {
     next();
 }
 
-
+//PUT /reviews/:reviewId
 async function update(req, res, next) {
     const updatedReview = {
         score: req.body.data.score ? req.body.data.score : res.locals.review.score,
