@@ -1,13 +1,12 @@
 function asyncErrorBoundary(delegate, defaultStatus) {
-    return (req, res, next) => {
+    return (request, response, next) => {
         Promise.resolve()
-        .then(() => delegate(req, res, next))
-        .catch((error) => {
-            const { status = defaultStatus, message = error } = error || {}
-            next({
-                status,
-                message,
-            })
-        })
-    }
+            .then(() => delegate(request, response, next))
+            .catch(error => {
+                const { status = defaultStatus, message = error } = error || {};
+                next({ status, message });
+            });
+    };
 }
+
+module.exports = asyncErrorBoundary;

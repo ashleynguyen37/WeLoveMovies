@@ -4,7 +4,7 @@ exports.up = function(knex) {
     table.increments("critic_id").primary()
         table.string("preferred_name")
         table.string("surname")
-        table.string("organization name")
+        table.string("organization_name")
         table.timestamps(true, true)
   })
 };
