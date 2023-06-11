@@ -3,8 +3,11 @@ const path = require("path");
 require("dotenv").config();
 
 const {
-  DATABASE_URL = "postgresql://postgres@localhost/postgres",
+  NODE_ENV = "development",
+  DATABASE_URL,
 } = process.env;
+
+const URL = NODE_ENV === "production" ? DATABASE_URL : DATABASE_URL;
 
 module.exports = {
   development: {
