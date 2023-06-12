@@ -1,4 +1,4 @@
-#WeLoveMovies
+# WeLoveMovies
 
 The purpose of this application is to offer details about films, cinemas, and movie evaluations, as well as to display which movies are currently being screened at specific theaters.
 
